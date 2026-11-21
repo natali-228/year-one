@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YEAR ONE.exe</title>
+
+    <style>
+        body {
+            background-color: #050805;
+            color: #39ff14;
+            font-family: monospace;
+            padding: 30px;
+            margin: 0;
+        }
+
+        h1 {
+            text-shadow: 0 0 10px #39ff14;
+        }
+
+        .subtitle {
+            color: #8bff79;
+            opacity: 0.8;
+        }
+
+        .menu {
+            margin-top: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 500px;
+        }
+
+        .menu button,
+        .back {
+            background: transparent;
+            color: #39ff14;
+            border: 1px solid #39ff14;
+            padding: 16px;
+            font-family: monospace;
+            font-size: 16px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .menu button:hover,
+        .back:hover {
+            background-color: #123012;
+            box-shadow: 0 0 10px #39ff14;
+        }
+
+        .section {
+            display: none;
+            margin-top: 35px;
+            max-width: 900px;
+            line-height: 1.7;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .archive-view {
+            display: none;
+        }
+
+        .archive-view.active {
+            display: block;
+        }
+
+        .memory {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin: 25px 0;
+            padding: 15px;
+            border: 1px solid #39ff14;
+        }
+
+        .memory img {
+            display: block;
+            width: 45%;
+            max-width: 350px;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .memory h3 {
+            margin-top: 0;
+        }
+
+        .memory p {
+            line-height: 1.7;
+        }
+
+        .memory-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .story-heading {
+            margin-top: 35px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 18px;
+            }
+
+            .memory {
+                flex-direction: column;
+            }
+
+            .memory img {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .menu button,
+            .back {
+                font-size: 14px;
+            }
+        }
+
+        /* Эффект печати текста */
+
+        .cursor {
+            display: inline-block;
+            animation: blink 0.7s infinite;
+            margin-left: 3px;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        #main-menu .menu {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        #main-menu .menu.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <!-- Главный экран -->
+
+    <div id="main-menu">
+
+        <h1><span id="title-text"></span></h1>
+
+        <p class="subtitle">
+            <span id="subtitle-text"></span>
+        </p>
+
+        <p>
+            <span id="prompt-text"></span>
+        </p>
+
+        <div class="menu">
+
+            <button onclick="openSection('story')">
+                [01] История нашего первого года
+            </button>
+
+            <button onclick="openSection('future')">
+                [02] Следующий уровень
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="story" class="section">
+
+        <button class="back" onclick="showMenu()">← К архивам</button>
+
+        <h2>[01] История нашего первого года</h2>
+
+        <!-- Выбор архива -->
+        <div id="archive-menu" class="menu">
+
+            <button onclick="openArchive('before')">
+                [01.1] Начало нашей истории
+            </button>
+
+            <button onclick="openArchive('first-year')">
+                [01.2] Наш первый год
+            </button>
+
+        </div>
+
+
+        <!-- Архив 1: Начало нашей истории -->
+        <div id="before" class="archive-view">
+
+            <button class="back" onclick="showArchives()">
+                ← Назад
+            </button>
+
+            <h2>Здесь я хочу вспомнить начало нашей истории ♡</h2>
+
+            <h3 class="story-heading">
+                [1] Наши поездки в Бендеры йоу
+            </h3>
+
+            <p>Кажется, с них всё началось.</p>
+
+            <p>В тот вечер ты раскрылся для меня с другой стороны, и с того дня я всё чаще начала ловить себя на мыслях о тебе</p>
+
+            <div class="memory">
+                <img src="photos/tobendery.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <h3>Ну просто посмотри, какие мы свэговые!</h3>
+                </div>
+            </div>
+
+
+            <h3 class="story-heading">[2]</h3>
+
+            <p>Здесь ты меня первый раз позвал на прогулку ^-^</p>
+
+            <div class="memory">
+                <div class="memory-text">
+                    <h3>Это было самым милым предложением погулять</h3>
+
+                    <p>Ты был так аккуратен и робок, от чего всё казалось ещё милее. А я в это время глупо улыбалась, глядя в телефон, и впервые чувствовала бабочек в животе (#^.^#)</p>
+
+                    <p>Я очень люблю вспоминать эти моменты!❤</p>
+                </div>
+
+                 <img src="photos/walk1.jpg" alt="Наша фотография">
+            </div>
+
+
+            <h3 class="story-heading">[3] Наша первая прогулка!</h3>
+
+            <div class="memory">
+                <img src="photos/ferst_walk.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <p>Я прекрасно помню её и то, как хорошо мне было с тобой. Ты купил мне кактус!</p>
+
+                    <p>Тогда я ещё не знала, к чему всё это приведет, но мне уже нравилось проводить с тобой время.</p>
+
+                    <p>Я помню, как не хотела, чтобы вечер заканчивался..Наверное, именно в тот момент мне захотелось узнать тебя поближе.</p>
+                </div>
+            </div>
+
+
+            <h3 class="story-heading">И ещё наших прогулок!</h3>
+
+            <div class="memory">
+                <img src="photos/walkchis.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <p>Артём, с каждым днём ты начинал нравиться мне всё больше и больше, а мысли о тебе постепенно заполнили всю мою голову</p>
+                </div>
+            </div>
+
+
+            <div class="memory">
+                <img src="photos/kaif.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <p>Мне очень нравилось проводить время с тобой, и было приятно осознавать, что это взаимно.</p>
+                </div>
+            </div>
+
+            
+            <div class="memory">
+                <div class="memory-text">
+                    <p>Ты всегда был рядом со мной и поддерживал меня, успокаивал и заботился с первых дней (и до сих пор!), что для меня очень важно. Как сегодня помню нашу первую поездку к тебе в суклею и как ты меня поддерживал на обратном пути (и еще важно! включил песню зеленый няша крипер). Я также поддерживала тебя с самого начала и буду продолжать поддерживать тебя всегда и во всём!</p>
+
+                    <p>Тогда ты ещё казался мне таким мальчиком-загадкой и было очень интересно постепенно тебя разгадывать, ведь с каждой разгадкой ты становился всё более интересным, крутым и любимым</p>
+
+                    <p>Также очень важно! ты скачал ради меня инстаграм (⺣◡⺣)♡* А своими мемами и музыкой ты покорил моё сердце наповал.</p>
+
+                    <p>Кстати насчёт музыки. Любимый Артём, я молюсь на твой музыкальный вкус. Ты открыл для меня столько всего нового и прикольного, и теперь все песни в моём плейлисте у меня ассоциируются именно с тобой.</p>
+                </div>
+
+                <img src="photos/kruteak.jpg" alt="Наша фотография">
+            </div>
+
+            <div class="memory">
+                <img src="photos/song.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <h3>Мы будем слушать вместе любовный рок?</h3>
+                </div>
+            </div>
+
+
+            <h3 class="story-heading">[4] Также мне нравится проходить с тобой онлайн тестики.</h3>
+
+            <p>В одном из них тебе показало, что ты солнышко, и я хочу сказать, что это правда так: ты просто лучик солнца, Артём.</p>
+
+            <div class="memory">
+                <img src="photos/sun.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <h3>Рядом с тобой даже дождливые дни светлые и тёплые. Ты глоток свежего воздуха в моих серых днях.</h3>
+                </div>
+            </div>
+
+            <button class="back" onclick="showArchives()">
+                ← Назад
+            </button>
+
+        </div>
+
+        <!-- Архив 2: Наш первый год -->
+        <div id="first-year" class="archive-view">
+
+            <button class="back" onclick="showArchives()">
+                ← Назад
+            </button>
+
+            <h2>А теперь я пройдусь по нашему первому году (,,> ᴗ <,,)</h2>
+
+            <h3 class="story-heading">
+                [1] Точка сохранения
+            </h3>
+
+            <h2>22.11.2025</h2>
+
+            <p>Этот день вошёл в число моих любимых, ведь в этот день мы стали парой</p>            
+
+            <div>
+                <img src="photos/love.jpg" alt="Наша фотография">
+            </div>
+
+            <h3 class="story-heading">
+                [2] ⸜(｡˃ ᵕ ˂ )⸝♡
+            </h3>
+
+            <div class="memory">
+                <img src="photos/kiss1.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <h3>Ты украл мой первый поцелуй (как и моё сердечко)</h3>
+
+                    <p>Никогда не забуду, как ты учил меня целоваться ихихи и ещё как впервые взял меня за ручку, как часто смущал меня и заставлял моё сердце быстрее биться (да и до сих пор ♡ )</p>
+                </div>
+            </div>
+
+            <h3 class="story-heading">
+                [3] lovelovelove
+            </h3>
+
+            <div class="memory">
+                <div class="memory-text">
+                    <h3>Твоя забота.</h3>
+
+                    <p>Во всём я ощущаю твою заботу и внимание. Ты всегда стараешься порадовать меня и сделать приятно（˶′◡‵˶） Покупал мне много цветочков и ещё больше любимых шоколадок, оставляя их иногда под подушкой, пока я спала, помогал в учёбе (даже контурные карты мне один раз рисовал), за все время скинул мне миллион милых тиктоков, играл мне на гитаре и читал книги, играл со мной в Reyman, учитывая, насколько плохо я играю, расчесывал мои волосы, зная, как сильно мне это нравится, ложился спать в то же время, что и я, гулял со мной много, даже когда не хотел, даже в дождливые дни, давал мне тебя постричь (и не один раз!), интересовался, не голодная ли я и после этого вкусно готовил, встречал меня всегда и столько же раз провожал, даже ночью в аэропорт..</p>
+                </div>
+
+                <img src="photos/flover.jpg" alt="Наша фотография">
+            </div>
+
+            <h3 class="story-heading">
+                [4] 
+            </h3>
+
+            <p>Кстати об аэропорте</p>
+
+            <p>Когда нам ещё даже месяца не было, ты проводил меня поздно ночью в аэропорт, помог с сумками. На протяжении следующего месяца мы продолжали крепко и искренне общаться, после чего я осознала, насколько много на самом деле ты стал значить для меня, как сильно ты вошел в мою жизнь, что без хотя бы одного сообщения тебе я уже не могла представить свой день.</p>
+
+            <div class="memory">
+                <img src="photos/milimili.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <h3>Получать от тебя такие сообщения>>></h3>
+
+                    <p>Особенно когда мы на расстоянии. Мне было так приятно от твоих слов, что в такие моменты я просто сидела и улыбалась, перечитывая их по сто раз. Мне так хотелось обнять тебя. Было что-то невероятно нежное в том, как ты открывался мне и показывал свои чувства, и я чувствовала себя такой любимой.</p>
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="photos/gitara.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <h3>Даже на расстоянии ты умел сделать так, чтобы я ощущала твою близость, и от этого становилось особенно хорошо.</h3>
+                </div>
+            </div>
+
+            <div class="memory">
+                <div class="memory-text">
+                    <p>Скидывал свои старые фото, с которых я до сих пор умиляюсь и которыми до сих пор любуюсь - они у меня все в избранном (,,> ᴗ <,,)</p>
+
+                    <p>Просто мегасвэговый чувачок</p>
+                </div>
+
+                <img src="photos/y.artemii.jpg" alt="Наша фотография">
+            </div>
+
+            <div class="memory">
+                <img src="photos/dc.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <h2>☆.｡.:*　⤜♡→　.｡.:*☆</h2>
+
+                    <h3>И я тебя очень сильно люблю артема</h3>
+                </div>
+            </div>
+
+            <h3 class="story-heading">
+                [5] Твоя семья
+            </h3>
+
+            <div class="memory">
+                <div class="memory-text">
+                    <p>Мы часто после кишинева заезжали к тебе домой. Мне нравится там находиться, быть рядом с вами, нравится не только наблюдать за вашей атмосферой, но и чувствовать себя частью чего-то такого уютного.</p>
+
+                    <p>Надеюсь, что уже скоро я смогу себя спокойно чувствовать, сидя у вас дома, не переживая насчет того, кто мне может позвонить в ближайшее время...</p>
+
+                    <p>И надеюсь, что когда-то и у нас будет семья с таким уютом и вайбом, как у вас.</p>
+                </div>
+
+                <img src="photos/ostonovka.jpg" alt="Наша фотография">
+            </div>  
+
+            <div class="memory">
+                <img src="photos/софии.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <h3>Вы даже помогали сделать мне букетик для моей подруги всей семьей! Это что-то невероятное!</h3>
+                </div>
+
+            </div>
+            
+            <h3 class="story-heading">
+                [7] Потом настала весна
+            </h3>
+
+            <h3 class="story-heading">
+                Наше 8 матрааа
+            </h3>
+
+            <div class="memory">
+                <img src="photos/balbesiki.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <h3>← ну какие же они балбеские</h3>
+                </div>
+
+            </div>
+
+            <p>а что было после...</p>
+
+            <div class="memory">
+                <img src="photos/spring.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <h3>Мой кошко-мальчик =^-^=</h3>
+
+                    <p>С тобой я в первый раз увидела сакуру!</p>
+
+                    <p>Мы же с тобой когда-то посмотрим на нее в Японии?</p>
+                </div>
+
+            </div>
+
+            <h3>И еще столько всего мы делали вместе:</h3>
+
+            <div class="memory">
+                <div class="memory-text">
+                    <p>Мы ждали друг друга с утра, чтоб поехать вместе в универ.</p>
+                </div>
+
+                <img src="photos/morning.jpg" alt="Наша фотография">
+            </div>
+
+            <div class="memory">
+                <img src="photos/едааа.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <p>Мы готовили вместе. Много и вкусно</p>
+
+                    <p>И даже один раз такую милую пиццу сделали ヽ(^o^)ノ</p>
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="photos/сумочка.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <p>Ты часто носил мою сумочку, даже если она была полупустая, и, признаться, она тебе очень подходит.</p>
+                </div>
+            </div>
+
+
+            <div class="memory">
+                <img src="photos/песни.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <h3></h3>
+
+                    <p>Слушали вместе музыку.</p>
+
+                    <p>Много много музыки.</p>
+                </div>
+
+            </div>
+
+            <div class="memory">
+                <div class="memory-text">
+                    <p>Столько же много гуляли.</p>
+                </div>
+
+                <img src="photos/progulochki.jpg" alt="Наша фотография">
+            </div>
+
+            <div class="memory">
+                <div class="memory-text">
+                    <p>Даже на катамаранчике плавали.</p>
+                </div>
+
+                <img src="photos/катамаранчик.jpg" alt="Наша фотография">
+            </div>
+
+            <div class="memory">
+                <img src="photos/озеро.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <p>И гуляли ну в очень красивых местах! </p>
+                </div>
+            </div>
+
+            <h3 class="story-heading">
+                [8] .
+            </h3>
+
+            <div class="memory">
+                <img src="photos/тепло.jpg" alt="Наша фотография">
+
+                <div class="memory-text">
+                    <p>Артем, я тоже хочу держаться с тобой за руки. Навсегда.</p>
+                </div>
+            </div>
+
+            <p>Наш первый год! Ты подарил мне столько тепла, внимания и заботы. Самые обычные моменты нашей жизни были особенными и запоминающимися (у меня все они сохранятся в золотистом шаре). Люблю все моменты, связанные с тобой.</p>
+
+            <button class="back" onclick="showArchives()">
+                ← Назад
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Раздел 2: Следующий уровень -->
+    <div id="future" class="section">
+
+        <button class="back" onclick="showMenu()">← К архивам</button>
+
+        <h2>[02] Следующий уровень</h2>
+
+        <h3 class="story-heading">
+                Письмо моему любимому башмачку
+            </h3>
+
+        <p>В этом письме я хочу признаться тебе в любви. Её во мне полно, ведь ты сам даришь мне ее каждый день. И вот я люблю и ценю каждый день, проведенный с тобой. И хотела бы провести с тобой ещё хотя бы всю жизнь.</p>
+
+        <p>С тобой можно быть самой собой и не бояться осуждения (ну ладно, тут можно и поспорить хехе). Точно также и ты можешь быть настоящим собой рядом со мной. Я всегда тебя буду принимать. Даже если ты полысеешь (но все же надеюсь, такого не случиться!), ведь ты мне очень нравишься. Ты выделяешься среди всех остальных. И я готова еще много раз говорить о том, какой ты красивый, Артемий, несмотря на то, что ты каждый раз отвечаешь: "Тебе кажется." Это не так - ты самый мой красивенький и лучший кот</p>
+
+        <p>/ᐠ. ｡.ᐟ\ᵐᵉᵒʷˎˊ˗</p>
+
+        <p>Также я знаю, что всегда могу пробовать что-то новое, зная, что ты поддержишь в любой ситуации. И я хочу, чтоб и ты знал, что я также готова поддерживать тебя в любых ситуациях и твоих начинаниях. Я верю в тебя и в то, что ты со всем справишься. Я хочу наблюдать вместе с тобой все твои взлеты и нужные падения; как однажды сказал молодежьвыбираеткосмос: "Верь в мою веру в тебя" </p>
+
+        <p>Ты умеешь решать проблемы действиями и не раз это доказывал, за что я тебе благодарна. Я ценю твое доверие и сама всегда честна с тобой, Артем. </p>
+
+        <p> </p>
+
+        <p>За этот год мы через много чего прошли вместе. И несмотря на возможные ссоры и небольшие обиды, я все равно каждый день продолжаю и буду всегда продолжать выбирать тебя. Ведь без твоих "доброе утро" и "сладких снов киса" я уже не представляю своего дня.</p>
+
+        <p>Я тебя безумно сильно люблю, Артем ♥</p>
+    </div>
+
+
+    <script>
+        // Печать текста с движущимся курсором
+        function typeText(elementId, text, speed, cursor) {
+
+            return new Promise(function(resolve) {
+
+                const element = document.getElementById(elementId);
+                let index = 0;
+
+                element.appendChild(cursor);
+
+                function type() {
+
+                    if (index < text.length) {
+
+                        const letter = document.createTextNode(text[index]);
+
+                        element.insertBefore(letter, cursor);
+
+                        index++;
+
+                        setTimeout(type, speed);
+
+                    } else {
+                        resolve();
+                    }
+                }
+
+                type();
+            });
+        }
+
+
+        // Запуск анимации главного экрана
+
+        async function startScreen() {
+
+            const cursor = document.createElement("span");
+            cursor.className = "cursor";
+            cursor.textContent = "█";
+
+            const menu = document.querySelector("#main-menu .menu");
+
+            await typeText("title-text", "YEAR ONE.exe", 45, cursor);
+
+            await new Promise(resolve => setTimeout(resolve, 150));
+
+            await typeText("subtitle-text", "[ ЛИЧНЫЙ АРХИВ ]", 45, cursor);
+
+            await new Promise(resolve => setTimeout(resolve, 150));
+
+            await typeText("prompt-text", "Выбери раздел:", 45, cursor);
+
+            await new Promise(resolve => setTimeout(resolve, 150));
+
+            menu.classList.add("show");
+        }
+
+        window.addEventListener("load", startScreen);
+
+        function openSection(sectionId) {
+            document.getElementById("main-menu").style.display = "none";
+
+            const sections = document.querySelectorAll(".section");
+
+            sections.forEach(function(section) {
+                section.classList.remove("active");
+            });
+
+            document.getElementById(sectionId).classList.add("active");
+        }
+
+
+        function showMenu() {
+            const sections = document.querySelectorAll(".section");
+
+            sections.forEach(function(section) {
+                section.classList.remove("active");
+            });
+
+            document.getElementById("main-menu").style.display = "block";
+
+            showArchives();
+        }
+
+
+        function openArchive(archiveId) {
+            document.getElementById("archive-menu").style.display = "none";
+
+            const archives = document.querySelectorAll(".archive-view");
+
+            archives.forEach(function(archive) {
+                archive.classList.remove("active");
+            });
+
+            document.getElementById(archiveId).classList.add("active");
+        }
+
+
+        function showArchives() {
+            const archives = document.querySelectorAll(".archive-view");
+
+            archives.forEach(function(archive) {
+                archive.classList.remove("active");
+            });
+
+            document.getElementById("archive-menu").style.display = "flex";
+        }
+    </script>
+
+</body>
+</html>
